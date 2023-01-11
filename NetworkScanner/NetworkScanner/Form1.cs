@@ -15,7 +15,7 @@ using System.Diagnostics;
 using Microsoft.Win32;
 using System.IO;
 
-
+//Fasih Rohan 
 namespace NetworkScanner
 {
     public partial class Form1 : Form
@@ -39,10 +39,10 @@ namespace NetworkScanner
 
             //Split IP string into a 4 part array
             string[] startIPString = start.Split('.');
-            int[] startIP = Array.ConvertAll<string, int>(startIPString, int.Parse); //Change string array to int array
+            int[] startIP = Array.ConvertAll<string, int>(startIPString, int.Parse); 
             string[] endIPString = end.Split('.');
             int[] endIP = Array.ConvertAll<string, int>(endIPString, int.Parse);
-            int count = 0; //Count the number of successful pings
+            int count = 0; 
             Ping myPing;
             PingReply reply;
             IPAddress addr;
@@ -53,30 +53,30 @@ namespace NetworkScanner
             progressBar1.Value = 0;
             listVAddr.Items.Clear();
 
-                //Loops through the IP range, maxing out at 255
+                
                 for (int i = startIP[2]; i <= endIP[2]; i++) { //3rd octet loop
                     for (int y = startIP[3]; y <= 255; y++) { //4th octet loop
                         string ipAddress = startIP[0] + "." + startIP[1] + "." + i + "." + y; //Convert IP array back into a string
                         string endIPAddress = endIP[0] + "." + endIP[1] + "." + endIP[2] + "." + (endIP[3] + 1); // +1 is so that the scanning stops at the correct range
 
-                        //If current IP matches final IP in range, break
+                        
                         if (ipAddress == endIPAddress) {
                             break;
                         }
 
                         myPing = new Ping();
                         try {
-                            reply = myPing.Send(ipAddress, 500); //Ping IP address with 500ms timeout
+                            reply = myPing.Send(ipAddress, 500); 
                         }
                         catch (Exception ex) {
                             break;
                         }
 
-                        lblStatus.ForeColor = System.Drawing.Color.Green; //Set status label for current IP address
+                        lblStatus.ForeColor = System.Drawing.Color.Green;
                         lblStatus.Text = "Scanning: " + ipAddress;
 
                         //Log pinged IP address in listview
-                        //Grabs DNS information to obtain system info
+                        //get DNS information to obtain system info
                         if (reply.Status == IPStatus.Success) {
                             try {
                                 addr = IPAddress.Parse(ipAddress);
@@ -87,7 +87,7 @@ namespace NetworkScanner
                             }
                             catch {
 
-                                listVAddr.Items.Add(new ListViewItem(new String[] { ipAddress, "Could not retrieve", "Up" })); //Logs pings that are successful, but are most likely not windows machines
+                                listVAddr.Items.Add(new ListViewItem(new String[] { ipAddress, "Could not retrieve", "Up" })); 
                                 count++;
                             }
                         }
@@ -107,7 +107,6 @@ namespace NetworkScanner
             lblStatus.ForeColor = System.Drawing.Color.Green;
             lblStatus.Text = "Done!";
             MessageBox.Show("Scanning done!\nFound " + count + " hosts.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //Catch exception that throws when stopping thread, caused by ping waiting to be acknowledged
             } catch (ThreadAbortException tex) {
                 Console.WriteLine(tex.StackTrace);
                 cmdScan.Enabled = true;
@@ -156,7 +155,6 @@ namespace NetworkScanner
                     {
                         lblStatus.Text = "Getting information. .";
                     
-                        //Add system info to dialog box
                         temp += obj.GetPropertyValue(param[i]).ToString() + "\n";
                         if (i == searchClass.Length - 1)
                         {
@@ -173,7 +171,7 @@ namespace NetworkScanner
             }
         }
 
-        //Send system commands (shutdown) to computers if you have admin access
+        //Send system commands shutdown to computers if you have admin access
         public void controlSys(string host, int flags)
         {
 
@@ -202,7 +200,7 @@ namespace NetworkScanner
         //Scan button
         private void cmdScan_Click(object sender, EventArgs e)
         {
-            //Catch empty IP addresses
+           
             if (txtIP.Text == string.Empty)
             {
                 //MessageBox.Show("No IP address entered.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -212,7 +210,7 @@ namespace NetworkScanner
             else
             {
                 //Create new thread for pinging
-                //myThread = new Thread(() => scan(txtIP.Text));
+                
                 myThread = new Thread(() => scan2(txtIP.Text, txtIP2.Text));
                 myThread.Start();
 
@@ -256,7 +254,7 @@ namespace NetworkScanner
             Process.Start("explorer.exe", @"\\" + listVAddr.SelectedItems[0].Text.ToString()); //Open explorer with host IP
         }
 
-        //Query machine for system information
+        
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string host = listVAddr.SelectedItems[0].Text.ToString();
