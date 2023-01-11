@@ -1,0 +1,9 @@
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\bin\Debug\NetworkScanner.exe.config
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\bin\Debug\NetworkScanner.exe
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\bin\Debug\NetworkScanner.pdb
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.csprojResolveAssemblyReference.cache
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.Form1.resources
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.Properties.Resources.resources
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.csproj.GenerateResource.Cache
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.exe
+C:\Users\SSOLS-3\Documents\Visual Studio 2015\Projects\NetworkScanner\NetworkScanner\obj\Debug\NetworkScanner.pdb
